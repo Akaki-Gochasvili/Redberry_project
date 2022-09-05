@@ -1,0 +1,238 @@
+<section id="add" class="laptop">
+    <a href="/ad-info" class="back-button">
+        <i class="fa-solid fa-angle-left"></i>
+    </a>
+    <div class="heading">
+        <h3 class="first">თანამშრომლის ინფო</h3>
+        <h3 class="second">ლეპტოპის მახასიათებლები</h3>
+    </div>
+    <div class="form">
+        <form action="/add-laptop" method="POST" enctype="multipart/form-data">
+            <div class="image">
+                    {{#if errorFile.length}}
+                        <div style="border: 2px #EB6363 dashed; background: #fff1f1;">
+                            <input type="file" name="file">
+                            <div class="file-buttons">
+                                <i class="fa-solid fa-triangle-exclamation warning-sign"></i>
+                                <p style="color: red;">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</p>
+                                <button>ატვირთე</button>
+                            </div>
+                        </div>
+                    {{else}}
+                        <div>
+                            <input type="file" name="file">
+                            <div class="file-buttons">
+                                <i style="pointer-events: none; visibility: hidden;" class="fa-solid fa-triangle-exclamation"></i>
+                                <p>ჩააგდე ან ატვირთე ლეპტოპის ფოტო</p>
+                                <button>ატვირთე</button>
+                            </div>
+                        </div>
+                    {{/if}}
+            </div>
+            <div>
+                <div>
+                    {{#if errorEmptyLaptopName.length}}
+                        <label style="color: #E52F2F;" for="laptop_name"> ლეპტოპის სახელი</label>
+                        <input style="border: solid 2px #E52F2F" type="text" class="laptop_name" name="laptop_name" placeholder="მაგ: HP"
+                            onkeyup="saveInLocalStorage('laptop_name', value)">
+                        <p style="color: #E52F2F;">{{errorEmptyLaptopName}}</p>
+                    {{else}}
+                        {{#if errorWrongLaptopName}}
+                            <label style="color: #E52F2F;" for="laptop_name"> ლეპტოპის სახელი</label>
+                            <input style="border: solid 2px #E52F2F" type="text" class="laptop_name" name="laptop_name" placeholder="მაგ: HP"
+                                onkeyup="saveInLocalStorage('laptop_name', value)">
+                            <p style="color: #E52F2F;">{{errorWrongLaptopName}}</p>
+                        {{else}}
+                            <label for="laptop_name"> ლეპტოპის სახელი</label>
+                            <input type="text" class="laptop_name" name="laptop_name" placeholder="მაგ: HP"
+                                onkeyup="saveInLocalStorage('laptop_name', value)">
+                            <p>ლათინური ასოები, ციფრები, !@#$%^&*()_+=</p>
+                        {{/if}}
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if errorBrand.length}}
+                        <select style="border: 2px solid #E52F2F; margin-top: 35px;" name="brand" class="brand" id="brand" onchange="saveInLocalStorage('brand', value)">
+                            <option selected>ლეპტოპის ბრენდი</option>
+                        </select>
+                        <p style="color: #E52F2F; margin-right: auto; margin-left: 22px; font-size: 12px; margin-bottom: 5px">{{errorBrand}}</p>
+
+                    {{else}}
+                        <select name="brand" class="brand" id="brand" onchange="saveInLocalStorage('brand', value)">
+                            <option selected>ლეპტოპის ბრენდი</option>
+                        </select>
+                    {{/if}}
+                </div>
+
+            </div>
+            <hr />
+            <div>
+                <div>
+                    {{#if errorCPU.length}}
+                        <select style="border: 2px solid #E52F2F; margin-top: 35px;" name="cpu" class="cpu" id="cpu" onchange="saveInLocalStorage('cpu', value)">
+                            <option selected>CPU</option>
+                        </select>
+                        <p style ="color: #E52F2F; margin-right: auto; margin-left: 22px; font-size: 12px; margin-bottom: 5px">{{errorCPU}}</p>
+                    {{else}}
+                        <select name="cpu" class="cpu" id="cpu" onchange="saveInLocalStorage('cpu', value)">
+                            <option selected>CPU</option>
+                        </select>
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if errorCPUCore.length}}
+                        <label style="color: #E52F2F;" for="cpu_core">CPU-ს ბირთვი</label>
+                        <input style="border: solid 2px #E52F2F" type="number" class="cpu_core" name="cpu_core" placeholder="მაგ: 14"
+                            onkeyup="saveInLocalStorage('cpu_core', value)">
+                        <p style="color: #E52F2F;">{{errorCPUCore}}</p>
+                    {{else}}
+                        <label  for="cpu_core">CPU-ს ბირთვი</label>
+                        <input type="number" class="cpu_core" name="cpu_core" placeholder="მაგ: 14"
+                            onkeyup="saveInLocalStorage('cpu_core', value)">
+                        <p>მხოლოდ ციფრები</p>
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if errorCPUThread.length}}
+                        <label style="color: #E52F2F;" for="cpu_thread">CPU-ს ნაკადი</label>
+                        <input style="border: solid 2px #E52F2F" type="number" class="cpu_thread" name="cpu_thread" placeholder="მაგ: 365"
+                            onkeyup="saveInLocalStorage('cpu_thread', value)">
+                        <p style="color: #E52F2F;">{{errorCPUThread}}</p>
+                    {{else}}
+                        <label for="cpu_thread">CPU-ს ნაკადი</label>
+                        <input type="number" class="cpu_thread" name="cpu_thread" placeholder="მაგ: 365"
+                            onkeyup="saveInLocalStorage('cpu_thread', value)">
+                        <p>მხოლოდ ციფრები</p>
+                    {{/if}}
+                </div>
+            </div>
+            <div>
+                <div>
+                    {{#if errorRam.length}}
+                        <label style="color: #E52F2F;" for="ram">ლეპტოპის RAM (GB)</label>
+                        <input style="border: solid 2px #E52F2F" type="number" class="ram" name="ram" placeholder="მაგ: 16"
+                            onkeyup="saveInLocalStorage('ram', value)">
+                        <p style="color: #E52F2F;">მხოლოდ ციფრები</p>
+                    {{else}}
+                        <label for="ram">ლეპტოპის RAM (GB)</label>
+                        <input  type="number" class="ram" name="ram" placeholder="მაგ: 16"
+                            onkeyup="saveInLocalStorage('ram', value)">
+                        <p>მხოლოდ ციფრები</p>
+                    {{/if}}
+                </div>
+                <div class="storage">
+                    {{#if errorStorage.length}}
+                        <div >
+                            <p style="color: #E52F2F;">მეხსიერების ტიპი</p>
+                            <i class="fa-solid fa-triangle-exclamation warning-sign"></i>
+                        </div>
+                        <div>
+                            <div>
+                                <input type="radio" id="ssd" name="storage" value="SSD"
+                                    onchange="saveInLocalStorage('storage', value)">
+                                <label style="margin-right: 25px;" for="ssd">SSD</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="hdd" name="storage" value="HDD"
+                                    onchange="saveInLocalStorage('storage', value)">
+                                <label for="hdd">HDD</label>
+                            </div>
+                        </div>
+                    {{else}}
+                        <div>
+                            <p>მეხსიერების ტიპი</p>
+                        </div>
+                        <div>
+                            <div>
+                                <input type="radio" id="ssd" name="storage" value="SSD"
+                                    onchange="saveInLocalStorage('storage', value)">
+                                <label style="margin-right: 25px;" for="ssd">SSD</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="hdd" name="storage" value="HDD"
+                                    onchange="saveInLocalStorage('storage', value)">
+                                <label for="hdd">HDD</label>
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div>
+                <div style="margin-bottom: 40px;">
+                    <label for="purchase_date">შეძენის რიცხვი (არჩევითი)</label>
+                    <input type="text" class="purchase_date" name="purchase_date" placeholder="დდ/თთ/წწწწ"
+                        onkeyup="saveInLocalStorage('purchase_date', value)">
+                </div>
+                <div>
+                    {{#if errorPrice.length}}
+                        <label style="color: #E52F2F;" for="price">ლეპტოპის ფასი</label>
+                        <input style="border: solid 2px #E52F2F" type="number" class="price" name="price" placeholder="მაგ: 2500"
+                            onkeyup="saveInLocalStorage('price', value)">
+                        <p style="color: #E52F2F;">მხოლოდ ციფრები</p>
+                    {{else}}
+                        <label for="price">ლეპტოპის ფასი</label>
+                        <input type="number" class="price" name="price" placeholder="მაგ: 2500"
+                            onkeyup="saveInLocalStorage('price', value)">
+                        <p>მხოლოდ ციფრები</p>
+                    {{/if}}
+                </div>
+            </div>
+            <div>
+
+                <div class="state storage">
+                    {{#if errorState.length}}
+                    <div>
+                        <p style="color: #E52F2F;">მდგომარეობა</p>
+                        <i class="fa-solid fa-triangle-exclamation warning-sign"></i>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="radio" id="new" name="state" class="state" value="ახალი"
+                                onchange="saveInLocalStorage('state', value)">
+                            <label style="margin-right: 25px;" for="new">ახალი</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="old" name="state" class="state" value="მეორადი"
+                                onchange="saveInLocalStorage('state', value)">
+                            <label for="old">მეორადი</label>
+                        </div>
+                    </div>
+                    {{else}}
+                    <p>ლეპტოპის მდგომარეობა</p>
+                    <div>
+                        <div>
+                            <input type="radio" id="new" name="state" class="state" value="new"
+                                onchange="saveInLocalStorage('state', value)">
+                            <label style="margin-right: 25px;" for="new">ახალი</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="old" name="state" class="state" value="used"
+                                onchange="saveInLocalStorage('state', value)">
+                            <label for="old">მეორადი</label>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="hidden-inputs">
+                <input type="hidden" class="hidden_first_name" name="first_name">
+                <input type="hidden" class="hidden_last_name" name="last_name">
+                <input type="hidden" class="hidden_team" name="team">
+                <input type="hidden" class="hidden_position" name="position">
+                <input type="hidden" class="hidden_mail" name="mail">
+                <input type="hidden" class="hidden_number" name="number">
+            </div>
+            <div class="button-box">
+                <button type="submit">დამახსოვრება</button>
+            </div>
+            <div class="back-box">
+                <a href="/add-info">უკან</a>
+            </div>
+        </form>
+    </div>
+    <div class="logo-box" style="margin-top: 80px;">
+        <img src="/images/logo.png" alt="">
+    </div>
+</section>
+
+<script src="/scrips/add-laptop.js"></script>

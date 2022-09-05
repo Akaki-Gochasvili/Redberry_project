@@ -1,0 +1,134 @@
+<section id="add">
+    <a href="/" class="back-button">
+        <i class="fa-solid fa-angle-left"></i>
+    </a>
+    <div class="heading">
+        <h3 class="first">თანამშრომლის ინფო</h3>
+        <h3 class="second">ლეპტოპის მახასიათებლები</h3>
+    </div>
+    <div class="form">
+        <form action="/add-info" method="POST">
+            <div class="name">
+                <div>
+                    {{#if errorEmptyFirstName.length}}
+                        <label style="color: #E52F2F" for="first_name">სახელი</label>
+                        <input style="border: solid 2px #E52F2F" type="text" class="first_name" name="first_name" placeholder="მაგ: გრიშა"
+                            onkeyup="saveInLocalStorage('first_name', value)">
+                        <p style="color: #E52F2F">{{errorEmptyFirstName}}</p>
+                    {{else}}
+                        {{#if errorWrongFirstName.length}}
+                            <label style="color: #E52F2F" for="first_name">სახელი</label>
+                            <input style="border: solid 2px #E52F2F" type="text" class="first_name" name="first_name" placeholder="მაგ: გრიშა"
+                                onkeyup="saveInLocalStorage('first_name', value)">
+                            <p style="color: #E52F2F">{{errorWrongFirstName}}</p>
+                        
+                        {{else}}
+                            <label for="first_name">სახელი</label>
+                            <input type="text" class="first_name" name="first_name" placeholder="მაგ: გრიშა"
+                                onkeyup="saveInLocalStorage('first_name', value)">
+                            <p>მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
+                        {{/if}}
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if errorEmptyLastName.length}}
+                        <label style="color: #E52F2F;" for="last_name">გვარი</label>
+                        <input style="border: solid 2px #E52F2F" type="text" class="last_name" las name="last_name" placeholder="მაგ: ბაგრატიონი"
+                            onkeyup="saveInLocalStorage('last_name', value)">
+                        <p style="color: #E52F2F;">{{errorEmptyLastName}}</p>
+                    {{else}}
+                        {{#if errorWrongLastName.length}}
+                            <label style="color: #E52F2F;" for="last_name">გვარი</label>
+                            <input style="border: solid 2px #E52F2F" type="text" class="last_name" las name="last_name" placeholder="მაგ: ბაგრატიონი"
+                                onkeyup="saveInLocalStorage('last_name', value)">
+                            <p style="color: #E52F2F;">{{errorWrongLastName}}</p>
+                        {{else}}
+                            <label for="last_name">გვარი</label>
+                            <input type="text" class="last_name" las name="last_name" placeholder="მაგ: ბაგრატიონი"
+                                onkeyup="saveInLocalStorage('last_name', value)">
+                            <p>მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+            <div class="job" id="job">
+                {{#if errorTeam.length}}
+                    <select style="border: 2px solid #E52F2F; margin-bottom: 10px;" name="team" class="teams" id="teams"
+                        onchange="selectedPosition(value), saveInLocalStorage('team', value) clearPositions()">
+                        <option>თიმი</option>
+                    </select>
+                    <p style="color: #E52F2F; margin-right: auto; margin-left: 22px; font-size: 12px; margin-bottom: 5px">{{errorTeam}}</p>
+                {{else}}
+                    <select name="team" class="teams" id="teams"
+                        onchange="selectedPosition(value), saveInLocalStorage('team', value), clearPositions()">
+                        <option>თიმი</option>
+                    </select>
+                {{/if}}
+                {{#if errorPosition.length}}
+                    <select style="border: 2px solid #E52F2F; margin-bottom: 10px;" name="position" class="positions" id="positions"
+                        onchange="saveInLocalStorage('position', value)" >
+                        <option selected>პოზიცია</option>
+                    </select>
+                    <p style="color: #E52F2F; margin-right: auto; margin-left: 22px; font-size: 12px; margin-bottom: 5px">{{errorPosition}}</p>
+                {{else}}    
+                    <select name="position" class="positions" id="positions"
+                        onchange="saveInLocalStorage('position', value)">
+                        <option selected>პოზიცია</option>
+                    </select>
+                {{/if}}
+            </div>
+            <div class="contact">
+                <div>
+                    {{#if errorEmptyMail.length}}
+                        <label style="color: #E52F2F;" for="mail">მეილი</label>
+                        <input style="border: solid 2px #E52F2F" type="text" class="mail" name="mail" placeholder="მაგ: grish@redberry.ge"
+                            onkeyup="saveInLocalStorage('mail', value)">
+                        <p style="color: #E52F2F;">{{errorEmptyMail}}</p>
+                    {{else}}
+                        {{#if errorWrongMail.length}}
+                        
+                            <label style="color: #E52F2F;" for="mail">მეილი</label>
+                            <input style="border: solid 2px #E52F2F" type="text" class="mail" name="mail" placeholder="მაგ: grish@redberry.ge"
+                                onkeyup="saveInLocalStorage('mail', value)">
+                            <p style="color: #E52F2F;">{{errorWrongMail}}</p>
+                        {{else}}
+                        
+                            <label for="mail">მეილი</label>
+                            <input type="text" class="mail" name="mail" placeholder="მაგ: grish@redberry.ge"
+                                onkeyup="saveInLocalStorage('mail', value)">
+                            <p>უნდა მთავრდებოდეს @redberry.ge-ით.</p>
+                        {{/if}}
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if errorNumber.length}}
+                        <label style="color: #E52F2F;" for="number">ტელეფონის ნომერი</label>
+                        <input style="border: solid 2px #E52F2F" type="text" class="number" name="number" placeholder="მაგ: +995555555555"
+                            onkeyup="saveInLocalStorage('number', value)">
+                        <p style="color: #E52F2F;">{{errorNumber}}</p>
+                    {{else}}
+                        {{#if errorNumber2.length}}
+                            <label style="color: #E52F2F;" for="number">ტელეფონის ნომერი</label>
+                            <input style="border: solid 2px #E52F2F" type="text" class="number" name="number" placeholder="მაგ: +995555555555"
+                                onkeyup="saveInLocalStorage('number', value)">
+                            <p style="color: #E52F2F;">{{errorNumber2}}</p>
+                        {{else}}
+                            <label for="number">ტელეფონის ნომერი</label>
+                            <input type="text" class="number" name="number" placeholder="მაგ: +995555555555"
+                                onkeyup="saveInLocalStorage('number', value)">
+                            <p>უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს.</p>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="submit">შემდეგი</button>
+            </div>
+        </form>
+    </div>
+    <div class="logo-box" style="margin-top: 80px;">
+        <img src="/images/logo.png" alt="">
+    </div>
+</section>
+
+<script src="/scripts/add.js"></script>

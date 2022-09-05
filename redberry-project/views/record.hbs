@@ -1,0 +1,84 @@
+<section class="record" id="record">
+    <div class="back-box">
+        <a href="/list" class="back-button">
+            <i class="fa-solid fa-angle-left"></i>
+        </a>
+    </div>
+    <h1>ლეპტოპის ინფო</h1>
+    <div class="container">
+        <div>
+            <article class="image-box">
+                <div class="image"
+                    style="background-image: url(/images/uploads/laptop_images/{{record.laptop_image}});"></div>
+            </article>
+            <div class="info">
+                <div>
+                    <h4>სახელი:</h4>
+                    <h4>თიმი:</h4>
+                    <h4>პოზიცია:</h4>
+                    <h4>მეილი:</h4>
+                    <h4>ტელ.ნომერი:</h4>
+                </div>
+                <div>
+                    <p>{{record.name}} {{record.surname}}</p>
+                    <p>{{record.team}}</p>
+                    <p>{{record.position}}</p>
+                    <p>{{record.email}}</p>
+                    <p>{{record.phone_number}}</p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div>
+                <div>
+                    <h4>ლეპტოპის სახელი:</h4>
+                    <h4>ლეპტოპის ბრენდი:</h4>
+                    <h4>RAM:</h4>
+                    <h4>მეხსიერების ტიპი:</h4>
+                </div>
+                <div>
+                    <p>{{record.laptop_name}}</p>
+                    <p>{{record.laptop_brand}}</p>
+                    <p>{{record.laptop_ram}}</p>
+                    <p>{{record.laptop_hard_drive_type}}</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h4>CPU:</h4>
+                    <h4>CPU-ს ბირთვი:</h4>
+                    <h4>CPU-ს ნაკადი:</h4>
+                </div>
+                <div>
+                    <p>{{record.laptop_cpu}}</p>
+                    <p>{{record.laptop_cpu_cores}}</p>
+                    <p>{{record.laptop_cpu_threads}}</p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div>
+                <div>
+                    <h4>ლეპტოპის მდგომარეობა:</h4>
+                    <h4>ლეპტოპის ფასი:</h4>
+                </div>
+                <div>
+                    <p>{{record.state}}</p>    
+                    <p>{{record.laptop_price}}</p>    
+                </div>
+            </div>
+            <div>
+                {{#if record.laptop_purchase_date.length}}
+                    <div>
+                        <h4>ლეპტოპის რიცხვი:</h4>
+                    </div>
+                    <div>
+                        <p>{{record.laptop_purchase_date}}</p>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>

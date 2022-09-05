@@ -1,0 +1,343 @@
+#add {
+    background: #F6F6F6;
+    min-height: 1150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#add.laptop {
+    min-height: 1550px;
+}
+
+#add .back-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 35px;
+    top: 35px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #D9D9D9;
+}
+
+#add .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px;
+    width: 550px;
+    position: relative;
+}
+
+#add .heading::before {
+    content: '';
+    height: 1px;
+    width: 150px;
+    background: black;
+    position: absolute;
+    left: 50px;
+    bottom: -6px;
+}
+
+#add.laptop .heading::before {
+    left: 290px;
+    width: 215px;
+}
+
+#add .form {
+    background: #fff;
+    width: 900px;
+    height: 750px;
+    padding: 40px;
+}
+
+#add.laptop .form {
+    height: 1150px;
+}
+
+#add form {
+    padding: 0 80px;
+}
+
+#add .form form>div,
+#add .form form .job {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#add .form form>div>div {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 40px);
+    margin: 20px;
+}
+
+#add.laptop .form form .image {
+    display: flex;
+    justify-content: center;
+}
+
+#add.laptop .form .image>div {
+    width: 100%;
+    border: 2px #8AC0E2 dashed;
+    border-radius: 18px;
+    position: relative;
+    background: #F6F6F6;
+}
+
+#add.laptop .form .image>div .file-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 275px;
+    top: 75px;
+    width: 150px;
+}
+
+#add.laptop .form .image>div .file-buttons button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: #62A1EB;
+    color: white;
+    margin: 15px 0;
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.warning-sign {
+    font-size: 25px;
+    color: #C9CB52;
+}
+
+#add.laptop .form .image>div .file-buttons p {
+    color: #62A1EB;
+    text-align: center;
+    margin: 15px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#add.laptop .form form .image input {
+    height: 300px;
+    width: 100%;
+    opacity: 0;
+}
+
+#add.laptop .form form .image input::-webkit-file-upload-button {
+    opacity: 1;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: #62A1EB;
+    color: white;
+    margin: 15px 0;
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+#add .form form>div>div * {
+    margin: 4px;
+}
+
+#add .form form>div>div label {
+    font-weight: 600;
+}
+
+#add .form form>div>div input {
+    height: 50px;
+    border: #8AC0E2 2px solid;
+    padding: 0 10px;
+    border-radius: 8px;
+}
+
+#add.laptop form .storage {
+    margin-bottom: auto;
+}
+
+#add.laptop form .storage p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+#add.laptop form .storage>div {
+    display: flex;
+}
+
+#add.laptop form .storage>div>div {
+    display: flex;
+}
+
+#add.laptop form .storage input {
+    height: auto;
+    padding: 0;
+    color: #8AC0E2;
+    border: 1px #8AC0E2 solid;
+    background: #8AC0E2;
+}
+
+#add .form form>div>div p {
+    font-size: 12px;
+    color: rgb(54, 54, 54);
+}
+
+#add .form .contact,
+#add .form .job {
+    flex-direction: column;
+}
+
+#add .form .contact div,
+#add .form select {
+    display: flex;
+    margin: 20px;
+    width: calc(100% - 40px);
+}
+
+#add.laptop .form select {
+    width: 100%;
+}
+
+#add .form select {
+    border-radius: 8px;
+    height: 50px;
+    border: none;
+    background: #EBEBEB;
+    padding: 0 10px;
+}
+
+#add .form select option {
+    height: 50px;
+    background: #fff;
+}
+
+#add .form select option:hover {
+    background: #EBEBEB;
+}
+
+#add .form .back-box,
+#add .form .button-box {
+    position: relative;
+}
+
+
+#add .form .button-box button {
+    position: absolute;
+    right: 23px;
+    top: 40px;
+    border-radius: 8px;
+    background: #62A1EB;
+    color: #fff;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border: none;
+}
+
+#add .form .back-box a {
+    position: absolute;
+    top: 40px;
+    left: 23px;
+    color: #62A1EB;
+    background: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 391px) {
+    #add {
+        min-height: 700px !important;
+    }
+
+    #add .form {
+        width: 100%;
+        padding: 0;
+        height: 780px;
+    }
+    
+    #add .form form {
+        padding: 0 !important;
+    }
+
+    #add .form form .name {
+        flex-direction: column;
+    }
+
+    #add .form form .name>div {
+        width: calc(100% - 40px);
+    } 
+
+    #add .heading::before {
+        display: none;
+    }
+
+    #add .heading .second {
+        display: none;
+    }
+
+    #add .back-button {
+        left: 0;
+        top: 10px;
+        background: inherit;
+    }
+
+    #add .heading::after {
+        content: '1/2';
+        position: absolute;
+        left: 250px;
+        top: 22px;
+        color: grey;
+    }
+
+    #add .logo-box {
+        display: none;
+    }
+
+    #add .form form>div>div {
+        margin: 0;
+    }
+
+    #add .form .button-box button {
+        top: -10px;
+    }
+
+    #add * {
+        flex-direction: column;
+    }
+
+    #add.laptop form>div>* {
+        width: 90% !important;
+        margin: 20px !important;
+    }
+
+    #add.laptop form .image input  {
+        height: 200px !important;
+    }
+
+    #add.laptop form .image .file-buttons {
+        left: 100px !important;
+        top: 10px !important;
+    }
+
+    #add.laptop .image button,
+    #add select,
+    #add.laptop .storage>div,
+    #add.laptop .storage>div>div {
+        flex-direction: row !important;
+    }
+}

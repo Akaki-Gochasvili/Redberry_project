@@ -1,0 +1,25 @@
+<section id="list">
+    <div class="back-box">
+        <a href="/" class="back-button">
+            <i class="fa-solid fa-angle-left"></i>
+        </a>
+    </div>
+    <h1>ჩანაწერების სია</h1>
+    <div class="container">
+        <div>
+            {{#each records}}
+            <div class="record">
+                <div class="image-box">
+                    <div class="image" style="background-image: url(/images/uploads/laptop_images/{{laptop_image}});">
+                    </div>
+                </div>
+                <div class="text">
+                    <h4>{{name}} {{surname}}</h4>
+                    <p>{{laptop_cpu}}</p>
+                    <a href="/records/{{_id}}">მეტის ნახვა</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
